@@ -42,7 +42,8 @@ if(COMPILING_WITH_CATKIN)
 
     add_library( commonROS STATIC ${COMMON_SRC} ${COMMON_UI_SRC} )
     target_compile_definitions(commonROS PUBLIC DISABLE_RULE_EDITING)
-    target_link_libraries( commonROS PRIVATE
+    # PUBLIC for following libraries which also need QT_NO_DEBUG
+    target_link_libraries( commonROS PUBLIC
         ${Qt5Widgets_LIBRARIES}
         ${Qt5Xml_LIBRARIES}
         ${catkin_LIBRARIES}
